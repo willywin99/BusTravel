@@ -45,6 +45,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <script src="{{URL::asset('admin/assets/plugins/nprogress/nprogress.js')}}"></script>
+    <link href="https://unpkg.com/sleek-dashboard/dist/assets/css/sleek.min.css" rel="stylesheet"/>
   </head>
 
   <body class="header-fixed sidebar-fixed sidebar-dark header-light" id="body">
@@ -98,7 +99,7 @@
     {{-- </div> <!-- End Content Wrapper --> --}}
 
 
-    @include('admin.partials.footer')
+        @include('admin.partials.footer')
 
     </div> <!-- End Page Wrapper -->
   </div> <!-- End Wrapper -->
@@ -116,28 +117,28 @@
     <script src="{{URL::asset('admin/assets/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{URL::asset('admin/assets/plugins/simplebar/simplebar.min.js')}}"></script>
 
-    <script src='{{URL::asset('admin/assets/plugins/charts/Chart.min.js')}}'></script>
-    <script src='{{URL::asset('admin/assets/js/chart.js')}}'></script>
+    <script src="{{URL::asset('admin/assets/plugins/charts/Chart.min.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/js/chart.js')}}"></script>
 
 
 
 
-    <script src='{{URL::asset('admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js')}}'></script>
-    <script src='{{URL::asset('admin/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js')}}'></script>
-    <script src='{{URL::asset('admin/assets/js/vector-map.js')}}'></script>
+    <script src="{{URL::asset('admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.min.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/plugins/jvectormap/jquery-jvectormap-world-mill.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/js/vector-map.js')}}"></script>
 
-    <script src='{{URL::asset('admin/assets/plugins/daterangepicker/moment.min.js')}}'></script>
-    <script src='{{URL::asset('admin/assets/plugins/daterangepicker/daterangepicker.js')}}'></script>
-    <script src='{{URL::asset('admin/assets/js/date-range.js')}}'></script>
-
-
+    <script src="{{URL::asset('admin/assets/plugins/daterangepicker/moment.min.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/plugins/daterangepicker/daterangepicker.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/js/date-range.js')}}"></script>
 
 
 
 
 
 
-    <script src='{{URL::asset('admin/assets/plugins/toastr/toastr.min.js')}}'></script>
+
+
+    <script src="{{URL::asset('admin/assets/plugins/toastr/toastr.min.js')}}"></script>
 
 
 
@@ -153,6 +154,14 @@
     <script src="{{URL::asset('admin/assets/js/sleek.js')}}"></script>
   <link href="{{URL::asset('admin/assets/options/optionswitch.css')}}" rel="stylesheet">
 <script src="{{URL::asset('admin/assets/options/optionswitcher.js')}}"></script>
+<script src="https://unpkg.com/sleek-dashboard/dist/assets/js/sleek.bundle.js"></script>
+
+<script>
+    $(".delete").on("submit", function() {
+        return confirm("Do you want to remove this?");
+    });
+</script>
+
 </body>
 </html>
 
