@@ -13,8 +13,8 @@ class Bus extends Model
         'picture',
     ];
 
-    // public function ticket()
-    // {
-    //     # code...
-    // }
+    public function ticket()
+    {
+        return $this->belongsTo('App\Models\Ticket');
+    }
 }

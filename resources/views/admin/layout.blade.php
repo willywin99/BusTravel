@@ -27,9 +27,6 @@
 
 
 
-
-
-
     <!-- SLEEK CSS -->
     <link id="sleek-css" rel="stylesheet" href="{{URL::asset('admin/assets/css/sleek.css')}}" />
 
@@ -152,15 +149,15 @@
 
 
     <script src="{{URL::asset('admin/assets/js/sleek.js')}}"></script>
-  <link href="{{URL::asset('admin/assets/options/optionswitch.css')}}" rel="stylesheet">
-<script src="{{URL::asset('admin/assets/options/optionswitcher.js')}}"></script>
-<script src="https://unpkg.com/sleek-dashboard/dist/assets/js/sleek.bundle.js"></script>
+    <link href="{{URL::asset('admin/assets/options/optionswitch.css')}}" rel="stylesheet">
+    <script src="{{URL::asset('admin/assets/options/optionswitcher.js')}}"></script>
+    <script src="https://unpkg.com/sleek-dashboard/dist/assets/js/sleek.bundle.js"></script>
 
-<script>
-    $(".delete").on("submit", function() {
-        return confirm("Do you want to remove this?");
-    });
-</script>
+    <script>
+        $(".delete").on("submit", function() {
+            return confirm("Do you want to remove this?");
+        });
+    </script>
 
 </body>
 </html>
