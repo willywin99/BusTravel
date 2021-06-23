@@ -30,7 +30,12 @@
                             {!! Form::label('departure_time', "Departure Time") !!}
                             {{-- {!! Form::datetime('departure_time', null, ['class' => 'form-control datetimepicker']) !!} --}}
                             {{-- {!! Form::date('name', \Carbon\Carbon::now()); !!} --}}
-                            {{ Form::input('dateTime-local', 'departure_time', \Carbon\Carbon::now(), ['class' => 'form-control']) }}
+                            {{-- {{ Form::input('dateTime-local', 'departure_time', \Carbon\Carbon::now(), ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker']) }} --}}
+                            {!! Form::datetimeLocal('departure_time', date('Y-m-d\TH:i:sP', null) , ['class' => 'form-control']) !!}
+                            {{-- {{ Form::input('dateTime-local', 'departure_time', 2021-05-18, ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker', 'value' => '2021-05-18T16:40']) }} --}}
+                            {{-- {!! Form::datetime('departure_time', \Carbon\Carbon::now()) !!} --}}
+                            {{-- {{ Form::input('dateTime-local', 'departure_time', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) }} --}}
+                            {{-- {!! Form::text('departure_time', null, ['class' => 'form-control datetimepicker']) !!} --}}
                         </div>
 
                         {{-- <div class="form-group">
@@ -77,12 +82,14 @@
 
                         <div class="form-group">
                             {!! Form::label('bus_license_plate', 'Bus License Plate') !!}
-                            {!! Form::select('bus_license_plate', $buses, ['class' => 'form-control', 'selected' => !empty(old('bus_license_plate')) ? old('bus_license_plate') : $busIDs, 'placeholder' => "-- Choose License Plate --"]) !!}
+                            {!! Form::select('bus_id', $buses, ['class' => 'form-control', 'selected' => !empty(old('bus_license_plate')) ? old('bus_license_plate') : $busIDs, 'placeholder' => "-- Choose License Plate --"]) !!}
+                            {{-- {{ dd($buses)->id }} --}}
+                            {{-- {{ dd($busIDs) }} --}}
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('id_card_number', "Driver's ID Card Number") !!}
-                            {!! Form::select('id_card_number', $drivers, ['class' => 'form-control', 'selected' => !empty(old('id_card_number')) ? old('id_card_number') : $driverIDs, 'placeholder' => "-- Choose Driver's ID Card Number --"]) !!}
+                            {!! Form::select('driver_id', $drivers, ['class' => 'form-control', 'selected' => !empty(old('id_card_number')) ? old('id_card_number') : $driverIDs, 'placeholder' => "-- Choose Driver's ID Card Number --"]) !!}
                         </div>
 
                         {{-- <div class="form-group">
@@ -129,7 +136,7 @@
 </div>
 @endsection
 
-<script>
+{{-- <script>
     $(document).ready(function() {
     $('body').bootstrapMaterialDesign();
 
@@ -179,4 +186,23 @@
            }
         });
 });
+</script> --}}
+
+{{-- <script>
+    $(function () {
+        $('.datetimepicker').datetimepicker();
+    });
+</script> --}}
+
+{{-- <script type="text/javascript">
+    $.(document).ready(function() {
+        $('.datetimepicker').datetimepicker({
+            console.log(departure_time);
+        });
+    });
+</script> --}}
+
+<script>
+    // document.getElementsByClassName('datetimepicker').value = new Date().toDateInputValue();
+
 </script>

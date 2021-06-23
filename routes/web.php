@@ -21,6 +21,7 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('categories', 'CategoryController');
         Route::resource('tickets', 'TicketController');
+        Route::resource('buses', 'BusController');
     }
 );
 

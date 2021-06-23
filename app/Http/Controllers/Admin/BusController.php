@@ -5,27 +5,15 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-use App\Http\Requests\TicketRequest;
+use App\Http\Requests\BusRequest;
 
-use App\Models\Category;
-use App\Models\Ticket;
-use App\Models\Driver;
 use App\Models\Bus;
-use App\Models\User;
 
-use Str;
-use Auth;
 use DB;
 use Session;
 
-class TicketController extends Controller
+class BusController extends Controller
 {
-    // public function __construct()
-    // {
-    //     $this->data['buses'] = Ticket::bus();
-    //     $this->data['drivers'] = Ticket::driver();
-    // }
-
     /**
      * Display a listing of the resource.
      *
@@ -33,9 +21,9 @@ class TicketController extends Controller
      */
     public function index()
     {
-        $this->data['tickets'] = Ticket::orderBy('name', 'ASC')->paginate(10);
+        $this->data['buses'] = Bus::orderBy('name', 'ASC')->paginate(10);
 
-        return view('admin.tickets.index', $this->data);
+        return view('admin.buses.index', $this->data);
     }
 
     /**
@@ -46,23 +34,9 @@ class TicketController extends Controller
     public function create()
     {
         // $buses = Bus::orderBy('name', 'ASC')->get();
-        $buses = Bus::all('license_plate');
-        // dd($buses);
-        // var_dump($buses); exit;
-        // $drivers = Driver::orderBy('name', 'ASC')->get();
-        $drivers = Driver::all('id_card_number');
+        $this->data['bus'] = null;
 
-        $this->data['buses'] = $buses->toArray();
-        $this->data['drivers'] = $drivers->toArray();
-
-        $this->data['busIDs'] = [];
-        $this->data['driverIDs'] = [];
-
-        $this->data['ticket'] = null;
-
-        // var_dump($this->data['buses'][0]['license_plate']); exit;
-
-        return view('admin.tickets.form', $this->data);
+        return view('admin.buses.form', $this->data);
     }
 
     /**
@@ -71,31 +45,26 @@ class TicketController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(TicketRequest $request)
+    public function store(BusRequest $request)
     {
         $params = $request->except('_token');
-        $params['user_id'] = Auth::user()->id;
 
-        dd($params);
+        // dd($params);
 
         $saved = false;
         $saved = DB::transaction(function() use ($params) {
-            $ticket = Ticket::create($params);
-            $ticket->bus()->sync($params['busIDs']);
-
-            dd($ticket);
+            $bus = Bus::create($params);
 
             return true;
         });
 
-        if (saved) {
-            Session::flash('success', 'Ticket has been saved');
+        if($saved) {
+            Session::flash('success', 'Bus has been saved');
         } else {
-            Session:flash('error', 'Ticket could not been saved');
+            Session::flash('error', 'Bus could not be saved');
         }
-        // var_dump($params); exit;
 
-        return redirect('admin/tickets');
+        return redirect('admin/buses');
     }
 
     /**
@@ -117,7 +86,11 @@ class TicketController extends Controller
      */
     public function edit($id)
     {
-        //
+        $bus = Bus::findOrFail($id);
+
+        $this->data['bus'] = $bus;
+
+        return view('admin.buses.form', $this->data);
     }
 
     /**
@@ -127,9 +100,26 @@ class TicketController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(BusRequest $request, $id)
     {
-        //
+        $params = $request->except('_token');
+
+        $bus = Bus::findOrFail($id);
+
+        $saved = false;
+        $saved = DB::transaction(function() use ($bus, $params) {
+            $bus->update($params);
+
+            return true;
+        });
+
+        if($saved) {
+            Session::flash('success', 'Bus has been updated');
+        } else {
+            Session::flash('error', 'Bus could not be updated');
+        }
+
+        return redirect('admin/buses');
     }
 
     /**
@@ -140,6 +130,12 @@ class TicketController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $bus = Bus::findOrFail($id);
+
+        if ($bus->delete()) {
+            Session::flash('success', 'Bus has been deleted');
+        }
+
+        return redirect('admin/buses');
     }
 }
