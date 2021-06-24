@@ -37,7 +37,11 @@ class BusController extends Controller
      */
     public function create()
     {
-        // $buses = Bus::orderBy('name', 'ASC')->get();
+        $bus_images = BusImage::orderBy('id', 'ASC')->get();
+
+        $this->data['bus_images'] = $bus_images->toArray();
+        // dd($this->data['bus_images']);
+
         $this->data['bus'] = null;
         $this->data['busID'] = 0;
 

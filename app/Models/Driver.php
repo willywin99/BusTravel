@@ -10,6 +10,6 @@ class Driver extends Model
         'name',
         'id_card_number',
         'address',
-        'picture'
+        // 'picture'
     ];
 }

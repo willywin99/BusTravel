@@ -16,7 +16,7 @@
                     @include('admin.partials.flash', ['$errors' => $errors])
                     {!! Form::open(['url' => ['admin/buses/images', $bus->id], 'method' => 'POST', 'enctype' => 'multipart/form-data']) !!}
                     <div class="form-group">
-                        {!! Form::label('image', 'Product Image') !!}
+                        {!! Form::label('image', 'Bus Image') !!}
                         {!! Form::file('image', ['class' => 'form-control-file', 'placeholder' => 'product image']) !!}
                     </div>
                     <div class="form-footer pt-5 border-top">

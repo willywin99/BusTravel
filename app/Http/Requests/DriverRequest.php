@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class BusRequest extends FormRequest
+class DriverRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,16 +24,16 @@ class BusRequest extends FormRequest
     public function rules()
     {
         if ($this->method() == 'PUT') {
-            // $name = 'required|unique:buses,name,' . $this->get('id');
-            $license_plate = 'required|unique:buses,license_plate,' . $this->get('id');
+            $name = 'required|unique:drivers,name,' . $this->get('id');
+            $id_card_number = 'required|unique:drivers,id_card_number,' . $this->get('id');
         } else {
-            // $name = 'required|unique:buses,name';
-            $license_plate = 'required|unique:buses,license_plate';
+            $name = 'required|unique:drivers,name';
+            $id_card_number = 'required|unique:drivers,id_card_number';
         }
         return [
-            'name' => 'required',
-            'num_of_passenger' => 'required|numeric',
-            'license_plate' => $license_plate,
+            'name' => $name,
+            'id_card_number' => $id_card_number,
+            'address' => 'required',
             // 'picture' => 'required'
         ];
     }
