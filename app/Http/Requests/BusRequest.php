@@ -34,7 +34,7 @@ class BusRequest extends FormRequest
             'name' => 'required',
             'num_of_passenger' => 'required|numeric',
             'license_plate' => 'required',
-            'picture' => 'required'
+            // 'picture' => 'required'
         ];
     }
 }

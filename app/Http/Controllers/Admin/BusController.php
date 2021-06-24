@@ -6,9 +6,13 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
 use App\Http\Requests\BusRequest;
+use App\Http\Requests\BusImageRequest;
 
 use App\Models\Bus;
+use App\Models\BusImage;
 
+use Str;
+use Auth;
 use DB;
 use Session;
 
@@ -35,6 +39,7 @@ class BusController extends Controller
     {
         // $buses = Bus::orderBy('name', 'ASC')->get();
         $this->data['bus'] = null;
+        $this->data['busID'] = 0;
 
         return view('admin.buses.form', $this->data);
     }
@@ -48,6 +53,8 @@ class BusController extends Controller
     public function store(BusRequest $request)
     {
         $params = $request->except('_token');
+        $params['slug'] = Str::slug($params['name']);
+        $params['user_id'] = Auth::user()->id;
 
         // dd($params);
 
@@ -86,9 +93,14 @@ class BusController extends Controller
      */
     public function edit($id)
     {
+        if (empty($id)) {
+            return redirect('admin/buses/create');
+        }
+
         $bus = Bus::findOrFail($id);
 
         $this->data['bus'] = $bus;
+        $this->data['busID'] = $bus->id;
 
         return view('admin.buses.form', $this->data);
     }
@@ -103,6 +115,7 @@ class BusController extends Controller
     public function update(BusRequest $request, $id)
     {
         $params = $request->except('_token');
+        $params['slug'] = Str::slug($params['name']);
 
         $bus = Bus::findOrFail($id);
 
@@ -137,5 +150,76 @@ class BusController extends Controller
         }
 
         return redirect('admin/buses');
+    }
+
+    public function images($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/buses/create');
+        }
+
+        $bus = Bus::findOrFail($id);
+
+        $this->data['busID'] = $bus->id;
+        $this->data['busImages'] = $bus->busImages;
+
+        // dd($this->data['busImages']);
+
+        return view('admin.buses.images', $this->data);
+    }
+
+    public function add_image($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/buses');
+        }
+
+        $bus = Bus::findOrFail($id);
+
+        $this->data['busID'] = $id;
+        $this->data['bus'] = $bus;
+
+        return view('admin.buses.image_form', $this->data);
+    }
+
+    public function upload_image(BusImageRequest $request, $id)
+    {
+        $bus = Bus::findOrFail($id);
+
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $name = $bus->name . '_' . time();
+            $fileName = $name . '.' . $image->getClientOriginalExtension();
+
+            $folder = '/uploads/images';
+            $filePath = $image->storeAs($folder, $fileName, 'public');
+
+            $params = [
+                'bus_id' => $bus->id,
+                'path' => $filePath,
+            ];
+
+            if (BusImage::create($params)) {
+                Session::flash('success', 'Image has been uploaded');
+            } else {
+                Session::flash('errror', 'Image could not be uploaded');
+            }
+
+            return redirect('admin/buses/' . $id . '/images');
+        }
+    }
+
+    public function remove_image($id)
+    {
+        $image = BusImage::findOrFail($id);
+
+        // dd($image);
+
+        if ($image->delete()) {
+            Session::flash('success', 'Image has been deleted');
+        }
+
+
+        return redirect('admin/buses/' . $image->bus->id . '/images');
     }
 }

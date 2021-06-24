@@ -17,4 +17,9 @@ class Bus extends Model
     {
         return $this->belongsTo('App\Models\Ticket');
     }
+
+    public function busImages()
+    {
+        return $this->hasMany('App\Models\BusImage');
+    }
 }

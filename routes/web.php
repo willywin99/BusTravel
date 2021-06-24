@@ -21,7 +21,12 @@ Route::group(
         Route::get('dashboard', 'DashboardController@index');
         Route::resource('categories', 'CategoryController');
         Route::resource('tickets', 'TicketController');
+
         Route::resource('buses', 'BusController');
+        Route::get('buses/{busID}/images', 'BusController@images');
+        Route::get('buses/{busID}/add-image', 'BusController@add_image');
+        Route::post('buses/images/{busID}', 'BusController@upload_image');
+        Route::delete('buses/images/{busID}', 'BusController@remove_image');
     }
 );
 

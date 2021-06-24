@@ -16,7 +16,7 @@
                                 <th>Name</th>
                                 <th>Number of Passengers</th>
                                 <th>License Plate</th>
-                                <th>Picture</th>
+                                {{-- <th>Picture</th> --}}
                                 <th>Action</th>
                             </thead>
                             <tbody>
@@ -26,7 +26,7 @@
                                         <td>{{ $bus->name }}</td>
                                         <td>{{ $bus->num_of_passenger }}</td>
                                         <td>{{ $bus->license_plate }}</td>
-                                        <td>{{ $bus->picture }}</td>
+                                        {{-- <td>{{ $bus->picture }}</td> --}}
                                         <td>
                                             <a href="{{ url('admin/buses/' . $bus->id . '/edit') }}" class="btn btn-warning btn-sm">edit</a>
 
