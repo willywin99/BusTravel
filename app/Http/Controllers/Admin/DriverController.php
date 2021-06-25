@@ -9,6 +9,7 @@ use App\Http\Requests\DriverRequest;
 
 use App\Models\Driver;
 use App\Models\DriverImage;
+use App\Http\Requests\DriverImageRequest;
 
 use Str;
 use Auth;
@@ -154,5 +155,76 @@ class DriverController extends Controller
         }
 
         return redirect('admin/drivers');
+    }
+
+    public function images($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/drivers/create');
+        }
+
+        $driver = Driver::findOrFail($id);
+
+        $this->data['driverID'] = $driver->id;
+        $this->data['driverImages'] = $driver->driverImages;
+
+        // dd($this->data['driverImages']);
+
+        return view('admin.drivers.images', $this->data);
+    }
+
+    public function add_image($id)
+    {
+        if (empty($id)) {
+            return redirect('admin/drivers');
+        }
+
+        $driver = Driver::findOrFail($id);
+
+        $this->data['driverID'] = $id;
+        $this->data['driver'] = $driver;
+
+        return view('admin.drivers.image_form', $this->data);
+    }
+
+    public function upload_image(DriverImageRequest $request, $id)
+    {
+        $driver = Driver::findOrFail($id);
+
+        if ($request->has('image')) {
+            $image = $request->file('image');
+            $name = $driver->name . '_' . time();
+            $fileName = $name . '.' . $image->getClientOriginalExtension();
+
+            $folder = '/uploads/images';
+            $filePath = $image->storeAs($folder, $fileName, 'public');
+
+            $params = [
+                'driver_id' => $driver->id,
+                'path' => $filePath,
+            ];
+
+            if (DriverImage::create($params)) {
+                Session::flash('success', 'Image has been uploaded');
+            } else {
+                Session::flash('errror', 'Image could not be uploaded');
+            }
+
+            return redirect('admin/drivers/' . $id . '/images');
+        }
+    }
+
+    public function remove_image($id)
+    {
+        $image = DriverImage::findOrFail($id);
+
+        // dd($image);
+
+        if ($image->delete()) {
+            Session::flash('success', 'Image has been deleted');
+        }
+
+
+        return redirect('admin/drivers/' . $image->driver->id . '/images');
     }
 }

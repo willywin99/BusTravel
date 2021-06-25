@@ -12,4 +12,9 @@ class Driver extends Model
         'address',
         // 'picture'
     ];
+
+    public function driverImages()
+    {
+        return $this->hasMany('App\Models\DriverImage');
+    }
 }

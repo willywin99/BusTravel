@@ -8,9 +8,9 @@
 
 <div class="content">
     <div class="row">
-        {{-- <div class="col-lg-4">
+        <div class="col-lg-4">
             @include('admin.drivers.driver_menus')
-        </div> --}}
+        </div>
         <div class="col-lg-8">
             <div class="card card-default">
                 <div class="card-header card-header-border-bottom">

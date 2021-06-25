@@ -29,6 +29,10 @@ Route::group(
         Route::delete('buses/images/{busID}', 'BusController@remove_image');
 
         Route::resource('drivers', 'DriverController');
+        Route::get('drivers/{driverID}/images', 'DriverController@images');
+        Route::get('drivers/{driverID}/add-image', 'DriverController@add_image');
+        Route::post('drivers/images/{driverID}', 'DriverController@upload_image');
+        Route::delete('drivers/images/{driverID}', 'DriverController@remove_image');
     }
 );
 
