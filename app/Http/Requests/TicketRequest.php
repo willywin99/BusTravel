@@ -24,8 +24,8 @@ class TicketRequest extends FormRequest
     public function rules()
     {
         if ($this->method() == 'PUT') {
-            $passenger_name = 'required' . $this->get('id');
-            $departure_time = 'required' . $this->get('id');
+            $passenger_name = 'required|unique:tickets,passenger_name,' . $this->get('id');
+            $departure_time = 'required|unique:tickets,departure_time,' . $this->get('id');
         } else {
             $passenger_name = 'required';
             $departure_time = 'required';

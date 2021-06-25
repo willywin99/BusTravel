@@ -31,7 +31,8 @@
                             {{-- {!! Form::datetime('departure_time', null, ['class' => 'form-control datetimepicker']) !!} --}}
                             {{-- {!! Form::date('name', \Carbon\Carbon::now()); !!} --}}
                             {{-- {{ Form::input('dateTime-local', 'departure_time', \Carbon\Carbon::now(), ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker']) }} --}}
-                            {!! Form::datetimeLocal('departure_time', date('Y-m-d\TH:i:sP', null) , ['class' => 'form-control']) !!}
+                            {{-- {!! Form::datetimeLocal('departure_time', date('Y-m-d\TH:i:sP', null) , ['class' => 'form-control']) !!} --}}
+                            {!! Form::datetimeLocal('departure_time', null, ['class' => 'form-control']) !!}
                             {{-- {{ Form::input('dateTime-local', 'departure_time', 2021-05-18, ['class' => 'form-control datetimepicker', 'id' => 'datetimepicker', 'value' => '2021-05-18T16:40']) }} --}}
                             {{-- {!! Form::datetime('departure_time', \Carbon\Carbon::now()) !!} --}}
                             {{-- {{ Form::input('dateTime-local', 'departure_time', date('Y-m-d H:i:s'), ['class' => 'form-control datetimepicker']) }} --}}
@@ -73,7 +74,9 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text">Rp.</span>
                                 </div>
-                                <input name="price" type="text" class="form-control" aria-label="Amount (to the nearest dollar)">
+                                {{-- <input name="price" type="text" class="form-control" aria-label="Amount (to the nearest Rupiah)" value="{{ $price }}"> --}}
+                                {{-- {!! Form::text('price', null, ["class" => "form-control", 'placeholder' => 55000]) !!} --}}
+                                {!! Form::number('price', null, ["class" => "form-control", "placeholder" => 55000]) !!}
                                 <div class="input-group-append">
                                     <span class="input-group-text">.00</span>
                                 </div>
@@ -82,14 +85,14 @@
 
                         <div class="form-group">
                             {!! Form::label('bus_license_plate', 'Bus License Plate') !!}
-                            {!! Form::select('bus_id', $buses, ['class' => 'form-control', 'selected' => !empty(old('bus_license_plate')) ? old('bus_license_plate') : $busIDs, 'placeholder' => "-- Choose License Plate --"]) !!}
-                            {{-- {{ dd($buses)->id }} --}}
-                            {{-- {{ dd($busIDs) }} --}}
+                            {{-- {!! Form::select('bus_license_plate', $buses, ['class' => 'form-control', 'selected' => !empty(old('bus_license_plate')) ? old('bus_license_plate') : $busIDs, 'placeholder' => "-- Choose License Plate --"]) !!} --}}
+                            {!! Form::select('bus_id', $buses, null, ['class' => 'form-control', 'placeholder' => "-- Choose License Plate --"]) !!}
                         </div>
 
                         <div class="form-group">
                             {!! Form::label('id_card_number', "Driver's ID Card Number") !!}
-                            {!! Form::select('driver_id', $drivers, ['class' => 'form-control', 'selected' => !empty(old('id_card_number')) ? old('id_card_number') : $driverIDs, 'placeholder' => "-- Choose Driver's ID Card Number --"]) !!}
+                            {{-- {!! Form::select('id_card_number', $drivers, ['class' => 'form-control', 'selected' => !empty(old('id_card_number')) ? old('id_card_number') : $driverIDs, 'placeholder' => "-- Choose Driver's ID Card Number --"]) !!} --}}
+                            {!! Form::select('driver_id', $drivers, null, ['class' => 'form-control', 'placeholder' => "-- Choose Driver's ID Card Number --"]) !!}
                         </div>
 
                         {{-- <div class="form-group">

@@ -24,7 +24,7 @@
                             <tbody>
                                 @forelse ($tickets as $ticket)
                                     <tr>
-                                        <td>{{ $ticket->id }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $ticket->passenger_name }}</td>
                                         <td>{{ $ticket->departure_time }}</td>
                                         <td>{{ $ticket->pickup_address }}</td>
