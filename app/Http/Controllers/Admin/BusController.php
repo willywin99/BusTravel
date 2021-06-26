@@ -100,6 +100,15 @@ class BusController extends Controller
      */
     public function edit($id)
     {
+        // $bus_images = BusImage::orderBy('id', 'ASC')->get();
+        $bus_images = Bus::busImages('id', 'ASC')->get();
+
+        dd($bus_images);
+
+        $this->data['bus_images'] = $bus_images->toArray();
+
+        // dd($bus_images);
+
         if (empty($id)) {
             return redirect('admin/buses/create');
         }

@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="card card-default">
                     <div class="card-header card-header-border-bottom">
-                        <h2>Buses</h2>
+                        <h2>Users</h2>
                     </div>
                     <div class="card-body">
                         @include('admin.partials.flash')
@@ -14,41 +14,47 @@
                             <thead>
                                 <th>#</th>
                                 <th>Name</th>
-                                <th>Number of Passengers</th>
-                                <th>License Plate</th>
-                                {{-- <th>Picture</th> --}}
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Created At</th>
                                 <th>Action</th>
                             </thead>
                             <tbody>
-                                @forelse ($buses as $bus)
+                                @forelse ($users as $user)
                                     <tr>
-                                        <td>{{ $loop->index + 1 }}</td>
-                                        <td>{{ $bus->name }}</td>
-                                        <td>{{ $bus->num_of_passenger }}</td>
-                                        <td>{{ $bus->license_plate }}</td>
-                                        {{-- <td>{{ $bus->picture }}</td> --}}
+                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $user->name }}</td>
+                                        <td>{{ $user->email }}</td>
+                                        <td>{{ $user->roles->implode('name', ', ') }}</td>
+                                        <td>{{ $user->created_at }}</td>
                                         <td>
-                                            <a href="{{ url('admin/buses/' . $bus->id . '/edit') }}" class="btn btn-warning btn-sm">edit</a>
-                                            @can('delete_buses')
-                                                {!! Form::open(['url' => 'admin/buses/' . $bus->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
+                                        @if (!$user->hasRole('Admin'))
+                                            @can('edit_categories')
+                                                <a href="{{ url('admin/users/'. $user->id .'/edit') }}" class="btn btn-warning btn-sm">edit</a>
+                                            @endcan
+
+                                            @can('delete_categories')
+                                                {!! Form::open(['url' => 'admin/users/'. $user->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
                                                 {!! Form::hidden('_method', 'DELETE') !!}
                                                 {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
                                                 {!! Form::close() !!}
                                             @endcan
+                                        @endif
                                         </td>
                                     </tr>
                                 @empty
                                     <tr>
-                                        <td colspan="5">No records found</td>
+                                        <td colspan="6">No records found</td>
                                     </tr>
                                 @endforelse
                             </tbody>
                         </table>
-                        {{ $buses->links() }}
+                        {{ $users->links() }}
                     </div>
-                    @can('add_buses')
+
+                    @can('add_users')
                         <div class="card-footer text-right">
-                            <a href="{{ url('admin/buses/create') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
+                            <a href="{{ url('admin/users/create') }}" class="btn btn-primary">Add New</a>
                         </div>
                     @endcan
                 </div>

@@ -44,7 +44,7 @@
                     </table>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="{{ url('admin/buses/'.$busID.'/add-image') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ url('admin/buses/'.$busID.'/add-image') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
                 </div>
             </div>
         </div>

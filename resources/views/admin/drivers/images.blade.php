@@ -24,7 +24,7 @@
                         <tbody>
                             @forelse ($driverImages as $image)
                                 <tr>
-                                    <td>{{ $image->id }}</td>
+                                    <td>{{ $loop->index + 1 }}</td>
                                     {{-- <td> {{ dd(asset('storage/'.$image)) }}</td> --}}
                                     <td><img src="{{ asset('storage/'.$image->path) }}" style="width:100px"/></td>
                                     <td>{{ $image->created_at }}</td>
@@ -44,7 +44,7 @@
                     </table>
                 </div>
                 <div class="card-footer text-right">
-                    <a href="{{ url('admin/drivers/'.$driverID.'/add-image') }}" class="btn btn-primary">Add New</a>
+                    <a href="{{ url('admin/drivers/'.$driverID.'/add-image') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
                 </div>
             </div>
         </div>

@@ -33,6 +33,9 @@ Route::group(
         Route::get('drivers/{driverID}/add-image', 'DriverController@add_image');
         Route::post('drivers/images/{driverID}', 'DriverController@upload_image');
         Route::delete('drivers/images/{driverID}', 'DriverController@remove_image');
+
+        Route::resource('roles', 'RoleController');
+        Route::resource('users', 'UserController');
     }
 );
 

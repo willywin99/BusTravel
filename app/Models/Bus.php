@@ -10,7 +10,7 @@ class Bus extends Model
         'name',
         'num_of_passenger',
         'license_plate',
-        'picture',
+        // 'picture',
     ];
 
     public function ticket()

@@ -30,6 +30,7 @@
     <!-- No Extra plugin used -->
     <link href="{{URL::asset('admin/assets/plugins/jvectormap/jquery-jvectormap-2.0.3.css')}}" rel='stylesheet'>
     <link href="{{URL::asset('admin/assets/plugins/daterangepicker/daterangepicker.css')}}" rel='stylesheet'>
+    <link href="{{URL::asset('admin/assets/plugins/ladda/ladda.min.css')}}" rel='stylesheet'>
 
 
     <link href="{{URL::asset('admin/assets/plugins/toastr/toastr.min.css')}}" rel='stylesheet'>
@@ -147,7 +148,8 @@
 
     <script src="{{URL::asset('admin/assets/plugins/toastr/toastr.min.js')}}"></script>
 
-
+    <script src="{{URL::asset('admin/assets/plugins/ladda/spin.min.js')}}"></script>
+    <script src="{{URL::asset('admin/assets/plugins/ladda/ladda.min.js')}}"></script>
 
 
 
@@ -169,6 +171,31 @@
         });
     </script>
 
+    <script>
+        /*======== 8. LOADING BUTTON ========*/
+    /* 8.1. BIND NORMAL BUTTONS */
+    Ladda.bind(".ladda-button", {
+        timeout: 5000
+    });
+
+    /* 7.2. BIND PROGRESS BUTTONS AND SIMULATE LOADING PROGRESS */
+    Ladda.bind(".progress-demo button", {
+        callback: function(instance) {
+        var progress = 0;
+        var interval = setInterval(function() {
+            progress = Math.min(progress + Math.random() * 0.1, 1);
+            instance.setProgress(progress);
+
+            if (progress === 1) {
+            instance.stop();
+            clearInterval(interval);
+            }
+        }, 200);
+        }
+    });
+    </script>
 </body>
 </html>
+
+
 

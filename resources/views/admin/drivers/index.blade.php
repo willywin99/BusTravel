@@ -6,7 +6,7 @@
             <div class="col-lg-12">
                 <div class="card card-default">
                     <div class="card-header card-header-border-bottom">
-                        <h2>Products</h2>
+                        <h2>Drivers</h2>
                     </div>
                     <div class="card-body">
                         @include('admin.partials.flash')
@@ -21,7 +21,7 @@
                             <tbody>
                                 @forelse ($drivers as $driver)
                                     <tr>
-                                        <td>{{ $driver->id }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $driver->name }}</td>
                                         <td>{{ $driver->id_card_number }}</td>
                                         <td>{{ $driver->address }}</td>
@@ -44,7 +44,7 @@
                         {{ $drivers->links() }}
                     </div>
                     <div class="card-footer text-right">
-                        <a href="{{ url('admin/drivers/create') }}" class="btn btn-primary">Add New</a>
+                        <a href="{{ url('admin/drivers/create') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
                     </div>
                 </div>
             </div>

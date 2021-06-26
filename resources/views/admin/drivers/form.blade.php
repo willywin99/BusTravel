@@ -3,7 +3,7 @@
 @section('content')
 
 @php
-    $formTitle = empty($driver_images) ? 'Update' : 'New'
+    $formTitle = !empty($driver_images) ? 'Update' : 'New'
 @endphp
 
 <div class="content">
@@ -46,8 +46,12 @@
                         </div> --}}
 
                         <div class="form-footer pt-5 border-top">
-                            <button type="submit" class="btn btn-primary btn-default">Save</button>
-                            <a href="{{ url('admin/drivers') }}" class="btn btn-secondary btn-default">Back</a>
+                            <button type="submit" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="contract-overlay">
+                                <span class="ladda-label">Save</span>
+                                <span class="ladda-spinner"></span>
+                                {{-- <div class="ladda-progress" style="width: 0px;"></div> --}}
+                            </button>
+                            <a href="{{ url('admin/drivers') }}" class="ladda-button btn btn-secondary btn-square btn-ladda" data-style="contract">Back</a>
                         </div>
                     {!! Form::close() !!}
                 </div>

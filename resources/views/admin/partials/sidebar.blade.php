@@ -19,7 +19,7 @@
                     </g>
                   </svg>
 
-                  <span class="brand-name text-truncate">Sleek Dashboard</span>
+                  <span class="brand-name text-truncate">BusTravel Dashboard</span>
                 </a>
               </div>
 
@@ -30,44 +30,44 @@
                   <li class="has-sub active expand">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
                       aria-expanded="false" aria-controls="dashboard">
-                      <i class="mdi mdi-view-dashboard-outline"></i>
-                      <span class="nav-text">Dashboard</span> <b class="caret"></b>
+                      <i class="mdi mdi-bus"></i>
+                      <span class="nav-text">Bus</span> <b class="caret"></b>
                     </a>
 
-                    <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
+                     <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         <li class="active">
-                          <a class="sidenav-item-link" href="index.html">
-                            <span class="nav-text">Ecommerce</span>
+                          <a class="sidenav-item-link" href="{{ url('admin/buses') }}">
+                            <span class="nav-text">All Bus</span>
                           </a>
                         </li>
 
-                        <li class="">
+                        {{-- <li class="">
                           <a class="sidenav-item-link" href="analytics.html">
-                            <span class="nav-text">Analytics</span>
+                            <span class="nav-text">Bus Images</span>
                             <span class="badge badge-success">new</span>
                           </a>
-                        </li>
+                        </li> --}}
                       </div>
                     </ul>
                   </li>
 
-                  <li class="has-sub ">
+                  <li class="has-sub">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
                       aria-expanded="false" aria-controls="app">
-                      <i class="mdi mdi-pencil-box-multiple"></i>
-                      <span class="nav-text">App</span> <b class="caret"></b>
+                      <i class="mdi mdi-steering"></i>
+                      <span class="nav-text">Drivers</span> <b class="caret"></b>
                     </a>
 
                     <ul class="collapse " id="app" data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         <li class="">
-                          <a class="sidenav-item-link" href="chat.html">
-                            <span class="nav-text">Chat</span>
+                          <a class="sidenav-item-link" href="{{ url('admin/drivers') }}">
+                            <span class="nav-text">All Drivers</span>
                           </a>
                         </li>
 
-                        <li class="">
+                        {{-- <li class="">
                           <a class="sidenav-item-link" href="contacts.html">
                             <span class="nav-text">Contacts</span>
                           </a>
@@ -83,7 +83,7 @@
                           <a class="sidenav-item-link" href="calendar.html">
                             <span class="nav-text">Calendar</span>
                           </a>
-                        </li>
+                        </li> --}}
                       </div>
                     </ul>
                   </li>
@@ -95,19 +95,19 @@
                   <li class="has-sub ">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                       aria-expanded="false" aria-controls="components">
-                      <i class="mdi mdi-folder-multiple-outline"></i>
-                      <span class="nav-text">Components</span> <b class="caret"></b>
+                      <i class="mdi mdi-ticket"></i>
+                      <span class="nav-text">Ticket</span> <b class="caret"></b>
                     </a>
 
                     <ul class="collapse " id="components" data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         <li class="">
-                          <a class="sidenav-item-link" href="alert.html">
-                            <span class="nav-text">Alert</span>
+                          <a class="sidenav-item-link" href="{{ url('admin/tickets') }}">
+                            <span class="nav-text">All Tickets</span>
                           </a>
                         </li>
 
-                        <li class="">
+                        {{-- <li class="">
                           <a class="sidenav-item-link" href="badge.html">
                             <span class="nav-text">Badge</span>
                           </a>
@@ -216,11 +216,36 @@
                             <span class="nav-text">Tab</span>
                           </a>
                         </li>
+                      </div> --}}
+                    </ul>
+                  </li>
+
+                  <li class="has-sub">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#auth"
+                      aria-expanded="false" aria-controls="auth">
+                      <i class="mdi mdi-account-multiple-outline"></i>
+                      <span class="nav-text">Users &amp; Roles</span> <b class="caret"></b>
+                    </a>
+
+                     <ul class="collapse" id="auth" data-parent="#sidebar-menu">
+                      <div class="sub-menu">
+                        <li class="active">
+                          <a class="sidenav-item-link" href="{{ url('admin/users') }}">
+                            <span class="nav-text">Users</span>
+                          </a>
+                        </li>
+
+                        <li>
+                          <a class="sidenav-item-link" href="{{ url('admin/roles') }}">
+                            <span class="nav-text">Roles</span>
+                            {{-- <span class="badge badge-success">new</span> --}}
+                          </a>
+                        </li>
                       </div>
                     </ul>
                   </li>
 
-                  <li class="has-sub ">
+                  {{-- <li class="has-sub ">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#icons"
                       aria-expanded="false" aria-controls="icons">
                       <i class="mdi mdi-diamond-stone"></i>
@@ -571,7 +596,7 @@
                         </li>
                       </div>
                     </ul>
-                  </li>
+                  </li> --}}
 
                   <!-- <li class="section-title">
                     Documentation
