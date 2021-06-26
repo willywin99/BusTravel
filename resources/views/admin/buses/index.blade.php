@@ -22,18 +22,19 @@
                             <tbody>
                                 @forelse ($buses as $bus)
                                     <tr>
-                                        <td>{{ $bus->index }}</td>
+                                        <td>{{ $loop->index + 1 }}</td>
                                         <td>{{ $bus->name }}</td>
                                         <td>{{ $bus->num_of_passenger }}</td>
                                         <td>{{ $bus->license_plate }}</td>
                                         {{-- <td>{{ $bus->picture }}</td> --}}
                                         <td>
                                             <a href="{{ url('admin/buses/' . $bus->id . '/edit') }}" class="btn btn-warning btn-sm">edit</a>
-
-                                            {!! Form::open(['url' => 'admin/buses/' . $bus->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
-                                            {!! Form::hidden('_method', 'DELETE') !!}
-                                            {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
-                                            {!! Form::close() !!}
+                                            @can('delete_buses')
+                                                {!! Form::open(['url' => 'admin/buses/' . $bus->id, 'class' => 'delete', 'style' => 'display:inline-block']) !!}
+                                                {!! Form::hidden('_method', 'DELETE') !!}
+                                                {!! Form::submit('remove', ['class' => 'btn btn-danger btn-sm']) !!}
+                                                {!! Form::close() !!}
+                                            @endcan
                                         </td>
                                     </tr>
                                 @empty
@@ -45,9 +46,11 @@
                         </table>
                         {{ $buses->links() }}
                     </div>
-                    <div class="card-footer text-right">
-                        <a href="{{ url('admin/buses/create') }}" class="btn btn-primary">Add New</a>
-                    </div>
+                    @can('add_buses')
+                        <div class="card-footer text-right">
+                            <a href="{{ url('admin/buses/create') }}" class="btn btn-primary">Add New</a>
+                        </div>
+                    @endcan
                 </div>
             </div>
         </div>

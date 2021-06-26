@@ -15,9 +15,12 @@ use Str;
 use Auth;
 use DB;
 use Session;
+use App\Authorizable;
 
 class BusController extends Controller
 {
+    use Authorizable;
+
     /**
      * Display a listing of the resource.
      *
