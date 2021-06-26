@@ -20,6 +20,14 @@ use Session;
 
 class TicketController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'tickets';
+        $this->data['currentAdminSubMenu'] = 'ticket';
+    }
+
     // public function __construct()
     // {
     //     $this->data['buses'] = Ticket::bus();

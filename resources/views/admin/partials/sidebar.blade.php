@@ -27,16 +27,16 @@
               <div class="" data-simplebar style="height: 100%;">
                 <!-- sidebar menu -->
                 <ul class="nav sidebar-inner" id="sidebar-menu">
-                  <li class="has-sub active expand">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#dashboard"
-                      aria-expanded="false" aria-controls="dashboard">
+                  <li class="has-sub {{ ($currentAdminMenu == 'bus') ? 'active expand' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#bus"
+                      aria-expanded="false" aria-controls="bus">
                       <i class="mdi mdi-bus"></i>
                       <span class="nav-text">Bus</span> <b class="caret"></b>
                     </a>
 
-                     <ul class="collapse show" id="dashboard" data-parent="#sidebar-menu">
+                     <ul class="collapse {{ ($currentAdminMenu == 'bus') ? 'show' : '' }}" id="bus" data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        <li class="active">
+                        <li class="{{ ($currentAdminSubMenu == 'all_bus') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/buses') }}">
                             <span class="nav-text">All Bus</span>
                           </a>
@@ -52,16 +52,16 @@
                     </ul>
                   </li>
 
-                  <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#app"
-                      aria-expanded="false" aria-controls="app">
+                  <li class="has-sub {{ ($currentAdminMenu == 'driver') ? 'active expand' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#bus"
+                      aria-expanded="false" aria-controls="bus">
                       <i class="mdi mdi-steering"></i>
-                      <span class="nav-text">Drivers</span> <b class="caret"></b>
+                      <span class="nav-text">Driver</span> <b class="caret"></b>
                     </a>
 
-                    <ul class="collapse " id="app" data-parent="#sidebar-menu">
+                    <ul class="collapse {{ ($currentAdminMenu == 'driver') ? 'show' : '' }}" id="bus" data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        <li class="">
+                        <li class="{{ ($currentAdminSubMenu == 'drivers') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/drivers') }}">
                             <span class="nav-text">All Drivers</span>
                           </a>
@@ -92,16 +92,16 @@
                     UI Elements
                   </li> -->
 
-                  <li class="has-sub ">
+                  <li class="has-sub {{ ($currentAdminMenu == 'tickets') ? 'active expand' : '' }}">
                     <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#components"
                       aria-expanded="false" aria-controls="components">
                       <i class="mdi mdi-ticket"></i>
                       <span class="nav-text">Ticket</span> <b class="caret"></b>
                     </a>
 
-                    <ul class="collapse " id="components" data-parent="#sidebar-menu">
+                    <ul class="collapse {{ ($currentAdminMenu == 'tickets') ? 'show' : '' }}" id="components" data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        <li class="">
+                        <li class="{{ ($currentAdminSubMenu == 'ticket') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/tickets') }}">
                             <span class="nav-text">All Tickets</span>
                           </a>
@@ -220,22 +220,22 @@
                     </ul>
                   </li>
 
-                  <li class="has-sub">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#auth"
-                      aria-expanded="false" aria-controls="auth">
+                  <li class="has-sub {{ ($currentAdminMenu == 'users_and_roles') ? 'expand active' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#user_role"
+                      aria-expanded="false" aria-controls="user_role">
                       <i class="mdi mdi-account-multiple-outline"></i>
                       <span class="nav-text">Users &amp; Roles</span> <b class="caret"></b>
                     </a>
 
-                     <ul class="collapse" id="auth" data-parent="#sidebar-menu">
+                     <ul class="collapse {{ ($currentAdminMenu == 'users_and_roles') ? 'show' : '' }}" id="user_role" data-parent="#sidebar-menu">
                       <div class="sub-menu">
-                        <li class="active">
+                        <li class="{{ ($currentAdminSubMenu == 'user') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/users') }}">
                             <span class="nav-text">Users</span>
                           </a>
                         </li>
 
-                        <li>
+                        <li class="{{ ($currentAdminSubMenu == 'role') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/roles') }}">
                             <span class="nav-text">Roles</span>
                             {{-- <span class="badge badge-success">new</span> --}}

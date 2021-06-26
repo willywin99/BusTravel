@@ -17,6 +17,14 @@ class UserController extends Controller
 {
     use Authorizable;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'users_and_roles';
+        $this->data['currentAdminSubMenu'] = 'user';
+    }
+
     /**
      * Display a listing of the resource.
      *

@@ -21,6 +21,14 @@ class BusController extends Controller
 {
     use Authorizable;
 
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'bus';
+        $this->data['currentAdminSubMenu'] = 'all_bus';
+    }
+
     /**
      * Display a listing of the resource.
      *

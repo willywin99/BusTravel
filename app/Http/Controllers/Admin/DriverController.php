@@ -18,6 +18,14 @@ use Session;
 
 class DriverController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'driver';
+        $this->data['currentAdminSubMenu'] = 'drivers';
+    }
+
     /**
      * Display a listing of the resource.
      *
