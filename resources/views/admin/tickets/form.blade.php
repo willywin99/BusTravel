@@ -128,8 +128,8 @@
                             {!! Form::select('status', $statuses , null, ['class' => 'form-control', 'placeholder' => '-- Set Status --']) !!}
                         </div> --}}
                         <div class="form-footer pt-5 border-top">
-                            <button type="submit" class="btn btn-primary btn-default">Save</button>
-                            <a href="{{ url('admin/tickets') }}" class="btn btn-secondary btn-default">Back</a>
+                            <button type="submit" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="contract-overlay">Save</button>
+                            <a href="{{ url('admin/tickets') }}" class="ladda-button btn btn-secondary btn-square btn-ladda" data-style="contract">Back</a>
                         </div>
                     {!! Form::close() !!}
                 </div>

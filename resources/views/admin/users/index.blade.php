@@ -22,7 +22,7 @@
                             <tbody>
                                 @forelse ($users as $user)
                                     <tr>
-                                        <td>{{ $user->id }}</td>
+                                        <td>{{ $loop->index + 1}}</td>
                                         <td>{{ $user->name }}</td>
                                         <td>{{ $user->email }}</td>
                                         <td>{{ $user->roles->implode('name', ', ') }}</td>
@@ -54,7 +54,7 @@
 
                     @can('add_users')
                         <div class="card-footer text-right">
-                            <a href="{{ url('admin/users/create') }}" class="btn btn-primary">Add New</a>
+                            <a href="{{ url('admin/users/create') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
                         </div>
                     @endcan
                 </div>

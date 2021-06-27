@@ -51,7 +51,7 @@
                         {{ $tickets->links() }}
                     </div>
                     <div class="card-footer text-right">
-                        <a href="{{ url('admin/tickets/create') }}" class="btn btn-primary">Add New</a>
+                        <a href="{{ url('admin/tickets/create') }}" class="ladda-button btn btn-primary btn-square btn-ladda" data-style="zoom-in">Add New</a>
                     </div>
                 </div>
             </div>

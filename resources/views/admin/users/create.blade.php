@@ -15,7 +15,7 @@
                         @include('admin.users.form')
                         <!-- Submit Form Button -->
                         <div class="form-footer pt-5 border-top">
-                            {!! Form::submit('Create', ['class' => 'btn btn-primary']) !!}
+                            {!! Form::submit('Create', ['class' => 'ladda-button btn btn-primary btn-square btn-ladda', 'data-style' => 'contract-overlay']) !!}
                         </div>
                     {!! Form::close() !!}
                 </div>
