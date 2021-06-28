@@ -19,6 +19,15 @@ use App\Authorizable;
 class TripController extends Controller
 {
     // use Authorizable;
+
+    public function __construct()
+    {
+        parent::__construct();
+
+        $this->data['currentAdminMenu'] = 'trips';
+        $this->data['currentAdminSubMenu'] = 'trip';
+    }
+
     /**
      * Display a listing of the resource.
      *

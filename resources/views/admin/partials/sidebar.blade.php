@@ -53,13 +53,13 @@
                   </li>
 
                   <li class="has-sub {{ ($currentAdminMenu == 'driver') ? 'active expand' : '' }}">
-                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#bus"
-                      aria-expanded="false" aria-controls="bus">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#driver"
+                      aria-expanded="false" aria-controls="driver">
                       <i class="mdi mdi-steering"></i>
                       <span class="nav-text">Driver</span> <b class="caret"></b>
                     </a>
 
-                    <ul class="collapse {{ ($currentAdminMenu == 'driver') ? 'show' : '' }}" id="bus" data-parent="#sidebar-menu">
+                    <ul class="collapse {{ ($currentAdminMenu == 'driver') ? 'show' : '' }}" id="driver" data-parent="#sidebar-menu">
                       <div class="sub-menu">
                         <li class="{{ ($currentAdminSubMenu == 'drivers') ? 'active' : '' }}">
                           <a class="sidenav-item-link" href="{{ url('admin/drivers') }}">
@@ -67,23 +67,25 @@
                           </a>
                         </li>
 
-                        {{-- <li class="">
-                          <a class="sidenav-item-link" href="contacts.html">
-                            <span class="nav-text">Contacts</span>
+                      </div>
+                    </ul>
+                  </li>
+
+                  <li class="has-sub {{ ($currentAdminMenu == 'trips') ? 'active expand' : '' }}">
+                    <a class="sidenav-item-link" href="javascript:void(0)" data-toggle="collapse" data-target="#trip"
+                      aria-expanded="false" aria-controls="trip">
+                      <i class="mdi mdi-road-variant"></i>
+                      <span class="nav-text">Trip</span> <b class="caret"></b>
+                    </a>
+
+                    <ul class="collapse {{ ($currentAdminMenu == 'trips') ? 'show' : '' }}" id="trip" data-parent="#sidebar-menu">
+                      <div class="sub-menu">
+                        <li class="{{ ($currentAdminSubMenu == 'trip') ? 'active' : '' }}">
+                          <a class="sidenav-item-link" href="{{ url('admin/trips') }}">
+                            <span class="nav-text">All Trips</span>
                           </a>
                         </li>
 
-                        <li class="">
-                          <a class="sidenav-item-link" href="team.html">
-                            <span class="nav-text">Team</span>
-                          </a>
-                        </li>
-
-                        <li class="">
-                          <a class="sidenav-item-link" href="calendar.html">
-                            <span class="nav-text">Calendar</span>
-                          </a>
-                        </li> --}}
                       </div>
                     </ul>
                   </li>
