@@ -23,4 +23,9 @@ class Controller extends BaseController
         $this->data['currentAdminMenu'] = 'dashboard';
         $this->data['currentAdminSubMenu'] = '';
     }
+
+    protected function load_theme($view, $data = [])
+    {
+        return view('themes/' . env('APP_THEME') . '/' . $view, $data);
+    }
 }
