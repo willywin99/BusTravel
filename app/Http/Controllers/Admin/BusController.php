@@ -108,10 +108,10 @@ class BusController extends Controller
      */
     public function edit($id)
     {
-        // $bus_images = BusImage::orderBy('id', 'ASC')->get();
-        $bus_images = Bus::busImages('id', 'ASC')->get();
+        $bus_images = BusImage::orderBy('id', 'ASC')->get();
+        // $bus_images = Bus::busImages('id', 'ASC')->get();
 
-        dd($bus_images);
+        // dd($bus_images);
 
         $this->data['bus_images'] = $bus_images->toArray();
 

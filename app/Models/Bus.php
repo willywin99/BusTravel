@@ -22,4 +22,9 @@ class Bus extends Model
     {
         return $this->hasMany('App\Models\BusImage');
     }
+
+    public function trip()
+    {
+        return $this->belongsTo('App\Models\Trip');
+    }
 }

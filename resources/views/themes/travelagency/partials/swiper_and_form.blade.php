@@ -58,7 +58,7 @@
         <div class="row row-fix justify-content-sm-center justify-content-lg-end">
           <div class="col-lg-6 col-xxl-5">
             <div class="form-request form-request-modern bg-gray-lighter novi-background">
-              <h4>Find your Tour</h4>
+              <h4>Find your Travel</h4>
               <!-- RD Mailform-->
               <form class="rd-mailform form-fix">
                 <div class="row row-20 row-fix">
@@ -94,7 +94,7 @@
                       <!--  option(value="3") Middle-->
                     </div>
                   </div>
-                  <div class="col-sm-12 col-lg-6">
+                  {{-- <div class="col-sm-12 col-lg-6">
                     <label class="form-label-outside">Duration</label>
                     <div class="form-wrap form-wrap-validation">
                       <!-- Select 2-->
@@ -105,8 +105,8 @@
                         <option value="4">4 days</option>
                       </select>
                     </div>
-                  </div>
-                  <div class="col-lg-6">
+                  </div> --}}
+                  {{-- <div class="col-lg-6">
                     <label class="form-label-outside">Adults</label>
                     <div class="form-wrap form-wrap-modern">
                       <input class="form-input input-append" id="form-element-stepper" type="number" min="0" max="300" value="2">
@@ -117,10 +117,10 @@
                     <div class="form-wrap form-wrap-modern">
                       <input class="form-input input-append" id="form-element-stepper-1" type="number" min="0" max="300" value="0">
                     </div>
-                  </div>
+                  </div> --}}
                 </div>
                 <div class="form-wrap form-button">
-                  <button class="button button-block button-secondary" type="submit">search flight</button>
+                  <button class="button button-block button-secondary" type="submit">search travel</button>
                 </div>
               </form>
             </div>

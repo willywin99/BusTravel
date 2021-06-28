@@ -25,14 +25,15 @@ class TicketRequest extends FormRequest
     {
         if ($this->method() == 'PUT') {
             $passenger_name = 'required|unique:tickets,passenger_name,' . $this->get('id');
-            $departure_time = 'required|unique:tickets,departure_time,' . $this->get('id');
+            // $departure_time = 'required|unique:tickets,departure_time,' . $this->get('id');
         } else {
             $passenger_name = 'required';
-            $departure_time = 'required';
+            // $departure_time = 'required';
         }
         return [
             'passenger_name' => $passenger_name,
-            'departure_time' => $departure_time,
+            // 'departure_time' => $departure_time,
+            'departure_time' => 'required',
             'price' => 'required|numeric',
         ];
     }

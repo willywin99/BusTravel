@@ -38,6 +38,8 @@ Route::group(
 
         Route::resource('roles', 'RoleController');
         Route::resource('users', 'UserController');
+
+        Route::resource('trips', 'TripController');
     }
 );
 

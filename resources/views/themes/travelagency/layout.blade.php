@@ -28,9 +28,11 @@
     <div class="page">
       <!-- Page Header-->
       @include('themes.travelagency.partials.header')
-      @include('themes.travelagency.partials.swiper_and_form')
+      {{-- @include('themes.travelagency.partials.swiper_and_form') --}}
 
-      @include('themes.travelagency.partials.upselling')
+      @yield('content')
+
+      {{-- @include('themes.travelagency.partials.upselling') --}}
 
       <!-- our advantages-->
       @include('themes.travelagency.partials.advantages')
