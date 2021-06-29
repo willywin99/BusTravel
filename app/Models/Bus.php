@@ -20,11 +20,11 @@ class Bus extends Model
 
     public function busImages()
     {
-        return $this->hasMany('App\Models\BusImage');
+        return $this->hasMany('App\Models\BusImage', 'bus_id')->orderBy('created_at', 'desc');
     }
 
     public function trip()
     {
-        return $this->belongsTo('App\Models\Trip');
+        return $this->hasMany('App\Models\Trip');
     }
 }

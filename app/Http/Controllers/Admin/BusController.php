@@ -10,6 +10,7 @@ use App\Http\Requests\BusImageRequest;
 
 use App\Models\Bus;
 use App\Models\BusImage;
+use App\Models\Trip;
 
 use Str;
 use Auth;

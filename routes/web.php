@@ -17,6 +17,8 @@
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/trips', 'TripController@index');
+
 Route::group(
     ['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth']],
     function() {

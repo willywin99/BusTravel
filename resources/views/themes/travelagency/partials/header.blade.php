@@ -42,7 +42,10 @@
               <ul class="rd-navbar-nav">
                 <li class="active"><a href="{{ env('APP_URL') }}">Home</a>
                 </li>
+                <li><a href="{{ url('/trips') }}">Trip</a>
+                </li>
                 <li><a href="about-us.html">About Us</a>
+                </li>
                 </li>
                 <li><a href="contacts.html">Contacts</a>
                 </li>
