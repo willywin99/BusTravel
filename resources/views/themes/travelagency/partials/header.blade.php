@@ -40,9 +40,10 @@
             <div class="rd-navbar-nav-wrap">
               <!-- RD Navbar Nav-->
               <ul class="rd-navbar-nav">
-                <li class="active"><a href="{{ env('APP_URL') }}">Home</a>
+                {{-- <li class="{{ ($currentMenu == 'home' ? 'active' : '') }}"><a href="{{ env('APP_URL') }}">Home</a> --}}
+                <li class="{{ ($currentMenu == 'home' ? 'active' : '') }}"><a href="{{ url('/') }}">Home</a>
                 </li>
-                <li><a href="{{ url('/trips') }}">Trip</a>
+                <li class="{{ ($currentMenu == 'trip' ? 'active' : '') }}"><a href="{{ url('/trips') }}">Trip</a>
                 </li>
                 <li><a href="about-us.html">About Us</a>
                 </li>

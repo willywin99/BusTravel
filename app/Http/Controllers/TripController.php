@@ -10,6 +10,11 @@ use App\Models\BusImage;
 
 class TripController extends Controller
 {
+    public function __construct()
+    {
+        $this->data['currentMenu'] = 'trip';
+    }
+
     /**
      * Display a listing of the resource.
      *

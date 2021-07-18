@@ -14,7 +14,8 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
-        parent::__construct();
+        // parent::__construct();
+        $this->data['currentMenu'] = 'home';
     }
 
     /**
@@ -25,6 +26,6 @@ class HomeController extends Controller
     public function index()
     {
         // return view('themes.travelagency.home');
-        return $this->load_theme('home');
+        return $this->load_theme('home', $this->data);
     }
 }
