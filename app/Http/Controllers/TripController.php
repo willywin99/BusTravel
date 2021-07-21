@@ -22,75 +22,24 @@ class TripController extends Controller
      */
     public function index()
     {
-        // $busImages = BusImage::all()->toArray();
-
         $buses = Bus::all();
 
-        // dd($buses->busImages->path);
-
         $busImages = BusImage::pluck('path', 'bus_id')->toArray();
-
-        // dd($busImages);
 
         foreach ($busImages as $key => $value) {
             // print($key);
             $tampungId[] = $key;
         }
 
-        // $busImages = BusImage::pluck('path', 'bus_id');
-        // $busImages = BusImage::all();
-        // foreach($busImages as $busImage) {
-        //     print($busImage->path);
-        //     // print($busImage['path']);
-        //     $this->data['image'] = $busImage['path'];
-        //     // print_r($this->data['image']);
-        // }
-
-        // $trip = Trip::find(1);
-
-        // foreach ($busImages as $busImage ) {
-        //     $tampung = collect(['id' => $busImage->id]);
-        //     print_r($tampung);
-        // }
-        // dd($tampung);
-
         $trips = Trip::all();
         foreach($trips as $trip) {
-            // print_r($trip->bus_id);
             $this->data['trips'] = $trip;
             $this->data['trips']['bus_images'] = $busImages[$trip->id];
-            // print_r($this->data);
         }
 
         $this->data['trips'] = $trips;
-        // $this->data['busImages'] = $busImages[$trips->id];
-        // $this->data['busImages'] = $busImages[$tampungId];
 
-        // dd($this->data['trips']);
-
-        // dd($trip->bus->name);
-        // dd($trip);
-
-        // dd($busImages);
-
-        // $trips = Trip::pluck('bus_id')->flatten();
-
-        // dd($trips->all());
-
-
-
-        // foreach($trips as $trip) {
-        //     $busId[] = $trip;
-        // }
-
-        // foreach ($busId as $value) {
-        //     print($value);
-        // }
-
-        // dd($busId);
-
-        // dd($this->data['images'] = $data);
-
+        // dd($this->data);
 
         return $this->load_theme('trips.index', $this->data);
     }
@@ -124,7 +73,29 @@ class TripController extends Controller
      */
     public function show($id)
     {
-        //
+        $buses = Bus::all();
+
+        $busImages = BusImage::pluck('path', 'bus_id')->toArray();
+
+        foreach ($busImages as $key => $value) {
+            // print($key);
+            $tampungId[] = $key;
+        }
+
+        $trips = Trip::all();
+        foreach($trips as $trip) {
+            $this->data['trips'] = $trip;
+            $this->data['trips']['bus_images'] = $busImages[$trip->id];
+        }
+
+        $trip = Trip::findOrFail($id);
+
+        $this->data['trip'] = $trip;
+        $this->data['trip']['bus_images'] = $busImages[$trip->id];
+
+        // dd($this->data);
+
+        return $this->load_theme('trips.show', $this->data);
     }
 
     /**

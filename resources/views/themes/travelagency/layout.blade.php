@@ -19,6 +19,23 @@
     <div style="background: #212121; padding: 10px 0; box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3); clear: both; text-align:center; position: relative; z-index:1;"><a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="images/ie8-panel/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a></div>
     <script src="js/html5shiv.min.js"> </script>
 		<![endif]-->
+
+    <!-- SLEEK CSS -->
+    <link id="sleek-css" rel="stylesheet" href="{{URL::asset('admin/assets/css/sleek.css')}}" />
+
+    <!-- all css here -->
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/magnific-popup.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/animate.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/owl.carousel.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/themify-icons.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/pe-icon-7-stroke.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/icofont.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/meanmenu.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/bundle.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('themes/ezone/assets/css/responsive.css') }}">
+    <script src="{{ asset('themes/ezone/assets/js/vendor/modernizr-2.8.3.min.js') }}"></script>
   </head>
   <body>
     <!-- Page preloader-->
@@ -53,6 +70,21 @@
     <!-- Javascript-->
     <script src="{{ asset('themes/travelagency/assets/js/core.min.js') }}"></script>
     <script src="{{ asset('themes/travelagency/assets/js/script.js') }}"></script>
+    <script src="{{URL::asset('admin/assets/js/sleek.js')}}"></script>
     <!-- coded by barber-->
+
+    <!-- all js here -->
+    <script src="{{ asset('themes/ezone/assets/js/vendor/jquery-1.12.0.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/popper.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/jquery.magnific-popup.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/jquery.counterup.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/waypoints.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/ajax-mail.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/owl.carousel.min.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/plugins.js') }}"></script>
+    <script src="{{ asset('themes/ezone/assets/js/main.js') }}"></script>
   </body>
 </html>

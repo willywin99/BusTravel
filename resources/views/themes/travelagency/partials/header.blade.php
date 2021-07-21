@@ -34,7 +34,29 @@
             <!-- RD Navbar Toggle-->
             <button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
             <!-- RD Navbar Brand-->
-            <div class="rd-navbar-brand"><a class="brand-name" href="{{ env('APP_URL') }}"><img class="logo-default" src="{{ asset('themes/travelagency/assets/images/logo-default-208x46.png') }}" alt="" width="208" height="46"/><img class="logo-inverse" src="{{ asset('themes/travelagency/assets/images/logo-inverse-208x46.png') }}" alt="" width="208" height="46"/></a></div>
+            {{-- <div class="rd-navbar-brand"><a class="brand-name" href="{{ env('APP_URL') }}"><img class="logo-default" src="{{ asset('themes/travelagency/assets/images/logo-default-208x46.png') }}" alt="" width="208" height="46"/><img class="logo-inverse" src="{{ asset('themes/travelagency/assets/images/logo-inverse-208x46.png') }}" alt="" width="208" height="46"/></a></div> --}}
+            {{-- <div class="rd-navbar-brand"><a class="brand-name" href="{{ env('APP_URL') }}"><img class="logo-default" src="{{ asset('themes/travelagency/assets/images/sleek-icon.png') }}" alt="" width="208" height="46"/><img class="logo-inverse" src="{{ asset('themes/travelagency/assets/images/sleek-icon.png') }}" alt="" width="208" height="46"/></a></div> --}}
+
+            <div class="app-brand">
+                {{-- <a href="/index.html" title="Sleek Dashboard"> --}}
+                <a href="/" title="BusTravel">
+                    <svg
+                    class="brand-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    preserveAspectRatio="xMidYMid"
+                    width="30"
+                    height="33"
+                    viewBox="0 0 30 33">
+                    <g fill="none" fill-rule="evenodd">
+                        <path class="logo-fill-blue" fill="#7DBCFF" d="M0 4v25l8 4V0zM22 4v25l8 4V0z" />
+                        <path class="logo-fill-white" fill="#FFF" d="M11 4v25l8 4V0z" />
+                    </g>
+                    </svg>
+
+                    <span class="brand-name text-truncate">BusTravel</span>
+                </a>
+            </div>
+
           </div>
           <div class="rd-navbar-aside-center">
             <div class="rd-navbar-nav-wrap">

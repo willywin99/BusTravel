@@ -13,19 +13,24 @@
         <div class="col-xl-3 text-xl-right"><a class="button button-secondary button-nina" href="#">view all trips</a></div>
       </div>
       <div class="row row-50">
-        <div class="col-md-6 col-xl-4">
-          <article class="event-default-wrap">
-            <div class="event-default">
-              <figure class="event-default-image"><img src="{{ asset('themes/travelagency/assets/images/landing-private-airlines-01-570x370.jpg') }}" alt="" width="570" height="370"/>
-              </figure>
-              <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="#">learn more</a></div>
-            </div>
-            <div class="event-default-inner">
-              <h5><a class="event-default-title" href="#">France, Paris</a></h5><span class="heading-5">from $280</span>
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-xl-4">
+          @foreach ($trips as $trip)
+            <a href="{{ url('trip/' . $trip->id) }}">
+                <div class="col-md-6 col-xl-4">
+                    <article class="event-default-wrap">
+                    <div class="event-default">
+                        {{-- <figure class="event-default-image"><img src="{{ asset('themes/travelagency/assets/images/landing-private-airlines-01-570x370.jpg') }}" alt="" width="570" height="370"/> --}}
+                        <figure class="event-default-image"><img src="{{ asset('storage/' . $trip['bus_images']) }}" alt="" width="570" height="370"/>
+                        </figure>
+                        <div class="event-default-caption"><a class="button button-xs button-secondary button-nina" href="{{ url('trip/' . $trip->id) }}">take a look</a></div>
+                    </div>
+                    <div class="event-default-inner">
+                        <h5><a class="event-default-title" href="#">{{ $trip->from }} -> {{ $trip->to }}</a></h5><span class="heading-5"> from Rp. {{ number_format($trip->price) }}</span>
+                    </div>
+                    </article>
+                </div>
+            </a>
+          @endforeach
+        {{-- <div class="col-md-6 col-xl-4">
           <article class="event-default-wrap">
             <div class="event-default">
               <figure class="event-default-image"><img src="{{ asset('themes/travelagency/assets/images/landing-private-airlines-02-570x370.jpg') }}" alt="" width="570" height="370"/>
@@ -84,7 +89,7 @@
               <h5><a class="event-default-title" href="#">UK, London</a></h5><span class="heading-5">from $600</span>
             </div>
           </article>
-        </div>
+        </div> --}}
       </div>
     </div>
   </section>

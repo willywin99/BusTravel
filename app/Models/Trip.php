@@ -21,5 +21,6 @@ class Trip extends Model
     {
         return $this->belongsTo('App/Models/Bus', 'bus_id');
         // return $this->hasMany('App/Models/Bus');
+        // return $this->has('App/Models/Bus');
     }
 }
