@@ -65,21 +65,27 @@
                   <div class="col-sm-12">
                     <label class="form-label-outside">From</label>
                     <div class="form-wrap form-wrap-inline">
-                      <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
-                        <option value="1">New York</option>
+                      {{-- <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city"> --}}
+                        {{-- <option value="1">New York</option>
                         <option value="2">Lisbon</option>
-                        <option value="3">Stockholm</option>
-                      </select>
+                        <option value="3">Stockholm</option> --}}
+
+                        {!! Form::select('from', $from, null, ['class' => 'form-input select-filter', 'data-placeholder' => 'All', 'data-minimum-results-for-search' => 'Infinity', 'name' => 'from']) !!}
+
+                      {{-- </select> --}}
                     </div>
                   </div>
                   <div class="col-sm-12">
                     <label class="form-label-outside">To</label>
                     <div class="form-wrap form-wrap-inline">
-                      <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
+                      {{-- <select class="form-input select-filter" data-placeholder="All" data-minimum-results-for-search="Infinity" name="city">
                         <option value="1">Chicago</option>
                         <option value="2">Madrid</option>
                         <option value="3">Paris</option>
-                      </select>
+                      </select> --}}
+
+                      {!! Form::select('to', $to, null, ['class' => 'form-input select-filter', 'data-placeholder' => 'All', 'data-minimum-results-for-search' => 'Infinity', 'name' => 'to']) !!}
+
                     </div>
                   </div>
                   <div class="col-sm-12 col-lg-6">
