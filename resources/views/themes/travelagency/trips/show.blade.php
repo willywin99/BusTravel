@@ -22,9 +22,9 @@
 								@php
 									$i = 1
 								@endphp
-								@forelse ($trips as $trip)
+								@forelse ($trip as $t)
 									<div class="tab-pane fade {{ ($i == 1) ? 'active show' : '' }}" id="pro-details{{ $i}}" role="tabpanel">
-										<img src="{{ asset('storage/' . $trips['bus_images']) }}" alt="{{ $trips->id }}">
+										<img src="{{ asset('storage/' . $bus_images) }}" alt="">
 									</div>
 									@php
 										$i++
@@ -37,7 +37,7 @@
 								@php
 									$i = 1
 								@endphp
-								@forelse ($trips as $trip)
+								@forelse ($trip as $t)
 									<a class="{{ ($i == 1) ? 'active' : '' }} mr-12" href="#pro-details{{ $i }}" data-toggle="tab" role="tab" aria-selected="true">
 										<img src="{{ asset('themes/ezone/assets/img/product-details/s1.jpg') }}" alt="">
 									</a>
@@ -53,18 +53,24 @@
 				</div>
 				<div class="col-md-12 col-lg-5 col-12">
 					<div class="product-details-content">
-						<h3>{{ $trips->from }} -> {{ $trips->to }}</h3>
+						<h3>{{ $from }} -> {{ $to }}</h3>
 						<div class="rating-number">
-							<div class="quick-view-rating">
+							{{-- <div class="quick-view-rating"> --}}
+                            <div class="label">
+								{{-- <i class="pe-7s-star red-star"></i>
 								<i class="pe-7s-star red-star"></i>
-								<i class="pe-7s-star red-star"></i>
 								<i class="pe-7s-star"></i>
 								<i class="pe-7s-star"></i>
-								<i class="pe-7s-star"></i>
-							</div>
-							<div class="quick-view-number">
-								<span>2 Ratting (S)</span>
-							</div>
+								<i class="pe-7s-star"></i> --}}
+                                <h4>Stock -> &nbsp;</h4>
+                            </div>
+							{{-- </div> --}}
+							{{-- <div class="quick-view-number"> --}}
+                            <div class="stock">
+								{{-- <span>2 Ratting (S)</span> --}}
+								<h4>{{ $trip->qty }}</h4>
+                            </div>
+							{{-- </div> --}}
 						</div>
 						{{-- <div class="details-price">
 							<span>{{ number_format($trips->price_label()) }}</span>
@@ -105,14 +111,14 @@
 							</ul>
 						</div> --}}
 						<div class="product-details-cati-tag mtb-10">
-							<ul>
+							{{-- <ul>
 								<li class="categories-title">Tags :</li>
 								<li><a href="#">fashion</a></li>
 								<li><a href="#">electronics</a></li>
 								<li><a href="#">toys</a></li>
 								<li><a href="#">food</a></li>
 								<li><a href="#">jewellery</a></li>
-							</ul>
+							</ul> --}}
 						</div>
 						<div class="product-share">
 							<ul>

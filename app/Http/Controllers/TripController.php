@@ -26,6 +26,8 @@ class TripController extends Controller
 
         $busImages = BusImage::pluck('path', 'bus_id')->toArray();
 
+        // dd($busImages);
+
         foreach ($busImages as $key => $value) {
             // print($key);
             $tampungId[] = $key;
@@ -34,7 +36,7 @@ class TripController extends Controller
         $trips = Trip::all();
         foreach($trips as $trip) {
             $this->data['trips'] = $trip;
-            $this->data['trips']['bus_images'] = $busImages[$trip->id];
+            $this->data['trips']['bus_images'] = $busImages[$trip->bus_id];
         }
 
         $this->data['trips'] = $trips;
@@ -82,17 +84,25 @@ class TripController extends Controller
             $tampungId[] = $key;
         }
 
-        $trips = Trip::all();
-        foreach($trips as $trip) {
-            $this->data['trips'] = $trip;
-            $this->data['trips']['bus_images'] = $busImages[$trip->id];
-        }
+        // $trips = Trip::all();
+        // foreach($trips as $trip) {
+        //     $this->data['trips'] = $trip;
+        //     $this->data['trips']['bus_images'] = $busImages[$trip->bus_id];
+        // }
 
         $trip = Trip::findOrFail($id);
 
-        $this->data['trip'] = $trip;
-        $this->data['trip']['bus_images'] = $busImages[$trip->id];
+        // dd($trip->to);
 
+        $this->data['trip'] = $trip;
+        // dd($this->data['trip']);
+
+        $this->data['from'] = $trip->from;
+        $this->data['to'] = $trip->to;
+        // $this->data['trip']['bus_images'] = $busImages[$trip->bus_id];
+        $this->data['bus_images'] = $busImages[$trip->bus_id];
+
+        // dd($this->data['trip']['bus_images']);
         // dd($this->data);
 
         return $this->load_theme('trips.show', $this->data);
