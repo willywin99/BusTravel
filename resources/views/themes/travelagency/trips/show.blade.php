@@ -54,24 +54,30 @@
 				<div class="col-md-12 col-lg-5 col-12">
 					<div class="product-details-content">
 						<h3>{{ $from }} -> {{ $to }}</h3>
-						<div class="rating-number">
-							{{-- <div class="quick-view-rating"> --}}
+                        <h4>{{ $bus_name }}</h4>
+                        <hr>
+                        <h4>License Plate -> {{ $license_plate }}</h4>
+                        <h4>Price -> Rp. {{ number_format($trip->price) }}</h4>
+                        <h4>Stock ->  {{ $trip->qty }}</h4>
+						{{-- <div class="rating-number">
+							<div class="quick-view-rating">
                             <div class="label">
-								{{-- <i class="pe-7s-star red-star"></i>
+								<i class="pe-7s-star red-star"></i>
 								<i class="pe-7s-star red-star"></i>
 								<i class="pe-7s-star"></i>
 								<i class="pe-7s-star"></i>
-								<i class="pe-7s-star"></i> --}}
+								<i class="pe-7s-star"></i>
                                 <h4>Stock -> &nbsp;</h4>
                             </div>
-							{{-- </div> --}}
-							{{-- <div class="quick-view-number"> --}}
+							</div>
+							<div class="quick-view-number">
+
                             <div class="stock">
-								{{-- <span>2 Ratting (S)</span> --}}
+								<span>2 Ratting (S)</span>
 								<h4>{{ $trip->qty }}</h4>
                             </div>
-							{{-- </div> --}}
-						</div>
+							</div>
+						</div> --}}
 						{{-- <div class="details-price">
 							<span>{{ number_format($trips->price_label()) }}</span>
 						</div> --}}

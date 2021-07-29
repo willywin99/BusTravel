@@ -78,11 +78,12 @@ class TripController extends Controller
         $buses = Bus::all();
 
         $busImages = BusImage::pluck('path', 'bus_id')->toArray();
+        // dd($busImages);
 
-        foreach ($busImages as $key => $value) {
+        // foreach ($busImages as $key => $value) {
             // print($key);
-            $tampungId[] = $key;
-        }
+            // $tampungId[] = $key;
+        // }
 
         // $trips = Trip::all();
         // foreach($trips as $trip) {
@@ -99,6 +100,14 @@ class TripController extends Controller
 
         $this->data['from'] = $trip->from;
         $this->data['to'] = $trip->to;
+
+        $tampungBusId = $trip->bus_id;
+        $busName = Bus::where('id', $tampungBusId)->first();
+        // dd($busName->name);
+
+        $this->data['bus_name'] = $busName->name;
+        $this->data['license_plate'] = $busName->license_plate;
+
         // $this->data['trip']['bus_images'] = $busImages[$trip->bus_id];
         $this->data['bus_images'] = $busImages[$trip->bus_id];
 
