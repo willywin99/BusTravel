@@ -60,7 +60,8 @@
             <div class="form-request form-request-modern bg-gray-lighter novi-background">
               <h4>Find your Travel</h4>
               <!-- RD Mailform-->
-              <form class="rd-mailform form-fix">
+              <form class="rd-mailform form-fix" action="{{ url('/search') }}" method="POST">
+                {{ csrf_field() }}
                 <div class="row row-20 row-fix">
                   <div class="col-sm-12">
                     <label class="form-label-outside">From</label>
@@ -71,6 +72,9 @@
                         <option value="3">Stockholm</option> --}}
 
                         {!! Form::select('from', $from, null, ['class' => 'form-input select-filter', 'data-placeholder' => 'All', 'data-minimum-results-for-search' => 'Infinity', 'name' => 'from']) !!}
+                        {{-- {!! Form::select('from', $from, null, ['class' => 'form-input select-filter', 'data-placeholder' => 'All', 'data-minimum-results-for-search' => 'Infinity', 'name' => 'from', 'value' => $from->index]) !!} --}}
+
+                        {{-- Form::select --}}
 
                       {{-- </select> --}}
                     </div>

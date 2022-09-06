@@ -16,6 +16,8 @@
 // });
 
 Route::get('/', 'HomeController@index');
+Route::post('/search', 'HomeController@search');
+// Route::get('/search', 'HomeController@search');
 
 Route::get('/trips', 'TripController@index');
 Route::get('trip/{id}', 'TripController@show');
